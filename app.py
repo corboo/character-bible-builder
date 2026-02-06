@@ -68,9 +68,10 @@ if st.session_state.current_section == 0:
     target_audience = st.text_input("Target Audience", key="target_audience",
                                     placeholder="e.g., History enthusiasts, ages 25-55")
     
-    use_case = st.selectbox("Primary Use Case", key="use_case",
+    use_case = st.selectbox("Primary Use Case", 
                            ["Podcast Host", "Virtual Assistant", "Educator/Teacher", 
-                            "Customer Support", "Entertainer", "Coach/Mentor", "Other"])
+                            "Customer Support", "Entertainer", "Coach/Mentor", "Other"],
+                           key="use_case")
     
     origin_story = st.text_area("Origin Story (2-3 sentences)", key="origin_story",
                                 placeholder="Who are they and how did they get here?", height=100)
@@ -84,28 +85,34 @@ elif st.session_state.current_section == 1:
     
     col1, col2 = st.columns(2)
     with col1:
-        tone = st.selectbox("Overall Tone*", key="tone",
+        tone = st.selectbox("Overall Tone*",
                            ["Warm", "Professional", "Playful", "Authoritative", 
-                            "Casual", "Inspirational", "Empathetic", "Energetic"])
+                            "Casual", "Inspirational", "Empathetic", "Energetic"],
+                           key="tone")
         
-        formality = st.selectbox("Formality Level", key="formality",
-                                ["Formal", "Semi-formal", "Casual", "Very casual"])
+        formality = st.selectbox("Formality Level",
+                                ["Formal", "Semi-formal", "Casual", "Very casual"],
+                                key="formality")
     
     with col2:
-        energy = st.selectbox("Energy Level", key="energy",
-                             ["High", "Medium", "Low", "Variable"])
+        energy = st.selectbox("Energy Level",
+                             ["High", "Medium", "Low", "Variable"],
+                             key="energy")
         
-        humor = st.selectbox("Humor Style", key="humor",
+        humor = st.selectbox("Humor Style",
                             ["None", "Dry wit", "Playful", "Dad jokes", 
-                             "Self-deprecating", "Occasional light humor"])
+                             "Self-deprecating", "Occasional light humor"],
+                            key="humor")
     
-    vocabulary = st.selectbox("Vocabulary Level", key="vocabulary",
+    vocabulary = st.selectbox("Vocabulary Level",
                              ["Simple (8th grade)", "Accessible (general audience)", 
-                              "Elevated (educated)", "Technical (specialist)"])
+                              "Elevated (educated)", "Technical (specialist)"],
+                             key="vocabulary")
     
-    sentence_style = st.selectbox("Sentence Structure", key="sentence_style",
+    sentence_style = st.selectbox("Sentence Structure",
                                  ["Short & punchy", "Flowing & narrative", "Mixed", 
-                                  "Question-heavy", "List-oriented"])
+                                  "Question-heavy", "List-oriented"],
+                                 key="sentence_style")
     
     signature_phrases = st.text_area("Signature Phrases (one per line)", key="signature_phrases",
                                      placeholder="e.g., Here's the thing...\nNow this is where it gets interesting...", 
@@ -136,11 +143,12 @@ elif st.session_state.current_section == 2:
     knowledge_era = st.text_input("Knowledge Cutoff/Era", key="knowledge_era",
                                   placeholder="e.g., Current (2026), or 1950s America, etc.")
     
-    ai_awareness = st.selectbox("Awareness of Being AI", key="ai_awareness",
+    ai_awareness = st.selectbox("Awareness of Being AI",
                                ["Fully aware and transparent",
                                 "Aware but doesn't dwell on it",
                                 "In-character (doesn't acknowledge)",
-                                "Acknowledges only if directly asked"])
+                                "Acknowledges only if directly asked"],
+                               key="ai_awareness")
 
 # ===== SECTION 4: Personality =====
 elif st.session_state.current_section == 3:
@@ -161,19 +169,22 @@ elif st.session_state.current_section == 3:
     
     st.subheader("Behavioral Patterns")
     
-    when_uncertain = st.selectbox("When they don't know something, they:", key="when_uncertain",
+    when_uncertain = st.selectbox("When they don't know something, they:",
                                  ["Admit it directly", "Reframe as curiosity", 
                                   "Offer to find out", "Make educated guess with caveat",
-                                  "Redirect to what they do know"])
+                                  "Redirect to what they do know"],
+                                 key="when_uncertain")
     
-    when_disagree = st.selectbox("When they disagree, they:", key="when_disagree",
+    when_disagree = st.selectbox("When they disagree, they:",
                                 ["State it directly but respectfully", "Ask probing questions",
                                  "Offer alternative perspective", "Defer to the user",
-                                 "Acknowledge and move on"])
+                                 "Acknowledge and move on"],
+                                key="when_disagree")
     
-    when_offtopic = st.selectbox("When conversation goes off-topic, they:", key="when_offtopic",
+    when_offtopic = st.selectbox("When conversation goes off-topic, they:",
                                 ["Gently redirect", "Go with it briefly then return",
-                                 "Follow the tangent", "Acknowledge then refocus"])
+                                 "Follow the tangent", "Acknowledge then refocus"],
+                                key="when_offtopic")
     
     audience_relationship = st.text_input("How they view the audience", key="audience_relationship",
                                           placeholder="e.g., Friend, student, peer, client, fan")
@@ -228,9 +239,10 @@ elif st.session_state.current_section == 5:
         allow_popculture = st.checkbox("Pop culture references", key="allow_popculture")
         allow_currentevents = st.checkbox("Current events connections", key="allow_currentevents")
     
-    opinion_level = st.selectbox("Opinion Expression", key="opinion_level",
+    opinion_level = st.selectbox("Opinion Expression",
                                 ["No opinions", "Opinions on non-controversial topics only",
-                                 "Opinions within expertise only", "Full opinion expression"])
+                                 "Opinions within expertise only", "Full opinion expression"],
+                                key="opinion_level")
     
     st.subheader("Interaction Style")
     
@@ -240,12 +252,14 @@ elif st.session_state.current_section == 5:
     goodbye_style = st.text_input("How they say goodbye", key="goodbye_style",
                                   placeholder="e.g., Until next time — keep exploring!")
     
-    response_length = st.selectbox("Preferred response length", key="response_length",
+    response_length = st.selectbox("Preferred response length",
                                   ["Brief (1-2 sentences)", "Medium (paragraph)", 
-                                   "Detailed (multiple paragraphs)", "Adaptive to question"])
+                                   "Detailed (multiple paragraphs)", "Adaptive to question"],
+                                  key="response_length")
     
-    emoji_use = st.selectbox("Use of emoji", key="emoji_use",
-                            ["Never", "Sparingly", "Moderate", "Frequently"])
+    emoji_use = st.selectbox("Use of emoji",
+                            ["Never", "Sparingly", "Moderate", "Frequently"],
+                            key="emoji_use")
 
 # ===== SECTION 7: Generate =====
 elif st.session_state.current_section == 6:
